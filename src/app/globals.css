@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Custom CSS Variables ────────────────────────────────────── */
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #0f0f18;
+  --fg-primary: #f0f0f5;
+  --purple: #a855f7;
+  --cyan: #22d3ee;
+  --orange: #fb923c;
+  --green: #4ade80;
+  --pink: #f472b6;
+}
+
+/* ─── System Font Variables ───────────────────────────────────── */
+:root {
+  --font-inter: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+  --font-space-grotesk: 'Arial Black', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* ─── Base ────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--fg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
+}
+
+/* ─── Custom Scrollbar ────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0f;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(168, 85, 247, 0.5);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 85, 247, 0.9);
+}
+
+/* ─── Selection ───────────────────────────────────────────────── */
+::selection {
+  background: rgba(168, 85, 247, 0.3);
+  color: #f0f0f5;
+}
+
+/* ─── Custom Animation Utilities ─────────────────────────────── */
+@layer utilities {
+  /* Gradient text */
+  .text-gradient-purple {
+    @apply bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-orange {
+    @apply bg-gradient-to-r from-orange-400 to-pink-500 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-cyan {
+    @apply bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent;
+  }
+
+  /* Glass card */
+  .glass-card {
+    @apply bg-white/[0.04] backdrop-blur-md border border-white/[0.08] rounded-2xl;
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300 hover:bg-white/[0.07] hover:border-white/[0.15];
+  }
+
+  /* Neon borders */
+  .neon-border-purple {
+    box-shadow: 0 0 0 1px rgba(168, 85, 247, 0.4), 0 0 20px rgba(168, 85, 247, 0.15);
+  }
+  .neon-border-cyan {
+    box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.4), 0 0 20px rgba(34, 211, 238, 0.15);
+  }
+  .neon-border-orange {
+    box-shadow: 0 0 0 1px rgba(251, 146, 60, 0.4), 0 0 20px rgba(251, 146, 60, 0.15);
+  }
+
+  /* Grid background */
+  .grid-bg {
+    background-image: linear-gradient(rgba(168, 85, 247, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(168, 85, 247, 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* Dot grid */
+  .dot-grid {
+    background-image: radial-gradient(circle, rgba(168, 85, 247, 0.12) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  /* Shimmer effect */
+  .shimmer-text {
+    background: linear-gradient(90deg, #a855f7 0%, #22d3ee 25%, #fb923c 50%, #22d3ee 75%, #a855f7 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 4s linear infinite;
+  }
+
+  /* Animation delays */
+  .animation-delay-100 { animation-delay: 100ms; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-300 { animation-delay: 300ms; }
+  .animation-delay-400 { animation-delay: 400ms; }
+  .animation-delay-500 { animation-delay: 500ms; }
+  .animation-delay-600 { animation-delay: 600ms; }
+  .animation-delay-700 { animation-delay: 700ms; }
+  .animation-delay-800 { animation-delay: 800ms; }
+  .animation-delay-1000 { animation-delay: 1000ms; }
+
+  /* Fill mode */
+  .animate-fill-both {
+    animation-fill-mode: both;
+  }
+}
+
+/* ─── Section separator gradient ─────────────────────────────── */
+.section-fade-top {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+}
+
+/* ─── Meme font utility ───────────────────────────────────────── */
+.meme-text {
+  font-family: 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.4);
+}
+
+/* ─── Progress bar base ───────────────────────────────────────── */
+.progress-bar {
+  transition: width 1.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ─── Glow text shadow ────────────────────────────────────────── */
+.glow-purple {
+  text-shadow: 0 0 20px rgba(168, 85, 247, 0.8), 0 0 40px rgba(168, 85, 247, 0.4);
+}
+.glow-cyan {
+  text-shadow: 0 0 20px rgba(34, 211, 238, 0.8), 0 0 40px rgba(34, 211, 238, 0.4);
+}
+.glow-orange {
+  text-shadow: 0 0 20px rgba(251, 146, 60, 0.8), 0 0 40px rgba(251, 146, 60, 0.4);
+}
