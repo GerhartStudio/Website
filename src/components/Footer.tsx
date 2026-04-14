@@ -1,4 +1,5 @@
 import { AlertTriangle } from "lucide-react";
+import { Link } from "react-router-dom";
 import logo from "@/assets/logo.jpg";
 
 const Footer = () => (
@@ -15,6 +16,7 @@ const Footer = () => (
           <a href="#pipeline" className="hover:text-primary transition-colors">Pipeline</a>
           <a href="#claudia" className="hover:text-primary transition-colors">Claudia</a>
           <a href="#faq" className="hover:text-primary transition-colors">FAQ</a>
+          <Link to="/imprint" className="hover:text-primary transition-colors">Imprint</Link>
         </div>
       </div>
 
