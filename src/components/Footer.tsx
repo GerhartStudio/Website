@@ -16,7 +16,7 @@ const Footer = () => (
           <a href="#pipeline" className="hover:text-primary transition-colors">Pipeline</a>
           <a href="#claudia" className="hover:text-primary transition-colors">Claudia</a>
           <a href="#faq" className="hover:text-primary transition-colors">FAQ</a>
-          <Link to="/imprint" className="hover:text-primary transition-colors">Imprint</Link>
+          <Link to="https://wwwleckmeinzeh.de/impressum" className="hover:text-primary transition-colors">Imprint</Link>
         </div>
       </div>
 
